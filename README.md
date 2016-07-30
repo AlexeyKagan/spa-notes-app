@@ -5,8 +5,8 @@
 ### Installation
 
 ```sh
-$ git clone [Willbe repo url here]
-$ cd cloned-repo
+$ git clone https://github.com/AlexeyKagan/spa-notes-app.git
+$ cd spa-notes-app
 $ npm i
 $ open mongodb on port 27017
 $ npm run server
