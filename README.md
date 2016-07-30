@@ -10,7 +10,7 @@ $ cd spa-notes-app
 $ npm i
 $ open mongodb on port 27017
 $ npm run server
-$ npm run webpack-dev-server
+$ npm run webpack-devserver
 $ type in browser: localhost:8090
 ```
 
