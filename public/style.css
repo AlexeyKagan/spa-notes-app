@@ -8,7 +8,7 @@ body {
     background-color: #eaeaea;
 }
 
-#mount-point {
+#app {
     display: flex;
     flex-direction: column;
     align-items: center;
