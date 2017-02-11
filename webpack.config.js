@@ -1,30 +1,35 @@
-var webpack = require('webpack');
+const path = require('path');
 
-module.exports = {
-    entry: "./client/main.js",
+const config = {
+    entry: './app/main.js',
     output: {
-        path: __dirname + '/public/build/',
-        publicPath: "build/",
-        filename: "bundle.js"
+        filename: 'bundle.js',
+        path: path.resolve(__dirname, 'dist'),
+        publicPath: '/'
     },
+    devtool: 'cheap-module-source-map',
     module: {
-        loaders: [
+        rules: [
             {
-                test: /\.js$/,
-                loader: 'babel-loader',
-                exclude: /node_modules/,
-                query: {
-                    presets: ['react', 'es2015']
-                }
+                test: /\.(js|jsx)$/,
+                use: 'babel-loader'
             },
             {
-                test: /\.jsx$/,
-                loader: 'babel-loader',
-                exclude: /node_modules/,
-                query: {
-                    presets: ['react', 'es2015']
-                }
-            }
+                test: /\.css$/,
+                use: [
+                    'style-loader',
+                    'css-loader?modules',
+                    'postcss-loader',
+                ],
+            },
         ]
+    },
+    devServer: {
+        contentBase: path.resolve(__dirname, 'dist'),
+        // GZIP Compression
+        compress: true,
+        port: 8080,
     }
 };
+
+module.exports = config;

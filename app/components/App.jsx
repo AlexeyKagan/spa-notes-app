@@ -5,10 +5,6 @@ import Greed from './Greed.jsx';
 
 class App extends React.Component {
 
-    constructor() {
-        super();
-    }
-
     render() {
         return (
             <div>
@@ -21,6 +17,3 @@ class App extends React.Component {
 }
 
 export default App;
-
-
-// <Greed notes={this.state.notes} onNoteDelete={this.handleNoteDelete}/>

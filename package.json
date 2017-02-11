@@ -4,35 +4,26 @@
   "description": "Notes application",
   "scripts": {
     "server": "babel-node server/app.js",
-    "webpack-devserver": "webpack-dev-server --debug --hot --devtool eval-source-map --output-pathinfo --watch --colors --inline --content-base public --port 8090 --host 0.0.0.0"
+    "start": "webpack-dev-server --open",
+    "webpack-devserver": "webpack-dev-server --debug --hot --devtool eval-source-map --output-pathinfo --watch --colors --inline --content-base dist --port 8090 --host 0.0.0.0"
   },
   "dependencies": {
-    "axios": "*",
     "body-parser": "*",
-    "classnames": "*",
     "cors": "*",
-    "events": "*",
     "express": "*",
-    "flux": "*",
-    "jquery": "*",
-    "keymirror": "*",
-    "mongoose": "*",
-    "react": "*",
-    "react-dom": "*",
-    "react-masonry-component": "*"
+    "mongoose": "*"
   },
   "devDependencies": {
-    "autoprefixer-loader": "*",
-    "babel-cli": "^6.11.4",
+    "babel-core": "^6.22.1",
     "babel-loader": "*",
-    "babel-preset-es2015": "^6.9.0",
-    "babel-preset-react": "^6.11.1",
-    "css-loader": "*",
-    "file-loader": "*",
-    "json-loader": "*",
-    "react-hot-loader": "*",
-    "style-loader": "*",
-    "url-loader": "*",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.22.0",
+    "babel-preset-stage-2": "^6.22.0",
+    "css-loader": "^0.26.1",
+    "postcss-loader": "^1.3.0",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "style-loader": "^0.13.1",
     "webpack": "*",
     "webpack-dev-server": "*"
   }
