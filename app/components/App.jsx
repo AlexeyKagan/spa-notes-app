@@ -1,16 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import Editor from './Editor.jsx';
-import Greed from './Greed.jsx';
 
-class App extends React.Component {
+class App extends Component {
 
     render() {
+
         return (
             <div>
                 <h1> Notes App</h1>
-                <Editor onNoteAdd={this.handleNoteAdd} />
 
+                <Editor />
             </div>
         )
     }

@@ -1,0 +1,13 @@
+.project-section{
+  margin-right: 15px;
+
+  &__header{
+    background: #939393;
+    color:white;
+  }
+
+  &__list{
+    background: #fff;
+  }
+
+}
