@@ -7,24 +7,9 @@ export default class ProjectSection extends Component {
     draggableItem: null
   };
 
-  onDragStart = (e) => {
-
-    const id = e.target.dataset.id;
-
-    this.setState({ draggableItem: id});
-
-    e.dataTransfer.setData('id', id);
-  };
-
-  onDragOver = (e) => e.preventDefault();
-
-  onDragDrop = (e) => this.props.onDropProject(+e.dataTransfer.getData('id'), e.currentTarget.dataset.group);
-
-  onDragEnd = () => this.setState({ draggableItem: null });
-
   render() {
-
-    const data = this.props.data.filter(d => d.type === this.props.group);
+    const {data:propsData, group, draggableItem} = this.props;
+    const data = propsData.filter(d => d.type === group);
 
     return (
       <section className="project-section"
@@ -41,15 +26,15 @@ export default class ProjectSection extends Component {
 
         <div className="project-section__list" >
           {
-            data.map(d =>
-              <div key={d.id}
-                   data-id={d.id}
-                   style={{backgroundColor: d.id == this.state.draggableItem ? 'rgba(0, 0, 0, 0.2)' : false}}
+            data.map(({ id, name }) =>
+              <div key={id}
+                   data-id={id}
+                   style={{backgroundColor: id == draggableItem ? 'rgba(0, 0, 0, 0.2)' : false}}
                    draggable="true"
                    onDragStart={this.onDragStart}
                    onDragEnd={this.onDragEnd}
               >
-                {d.name}
+                {name}
               </div>
             )
           }
@@ -58,5 +43,21 @@ export default class ProjectSection extends Component {
       </section>
     )
   }
+
+
+  onDragStart = (e) => {
+    const id = e.target.dataset.id;
+
+    this.setState({ draggableItem: id});
+
+    e.dataTransfer.setData('id', id);
+  };
+
+  onDragOver = (e) => e.preventDefault();
+
+  onDragDrop = (e) => this.props.onDropProject(+e.dataTransfer.getData('id'), e.currentTarget.dataset.group);
+
+  onDragEnd = () => this.setState({ draggableItem: null });
+
 }
 

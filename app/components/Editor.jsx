@@ -3,16 +3,37 @@ import ProjectSection from './ProjectSection/ProjectSection.js';
 
 let uniqId = 0;
 
-class Editor extends React.Component {
+export default class Editor extends React.Component {
 
   state = {
     value: '',
     projects: []
   };
 
+  render() {
+    const {value, projects} = this.state;
+    return (
+      <article>
+        <div>
+          <span> add project : </span>
+          <input type="text" value={value} onChange={this.handleChange}/>
+          <button onClick={this.addTask}>Add</button>
+        </div>
+        <div>
+          Total: {projects.length}
+        </div>
+
+        <article className="editor__projects">
+          <ProjectSection caption="To do" data={projects} group="todo" onDropProject={this.onDropProject} />
+          <ProjectSection caption="In Progress" data={projects} group="inProgress" onDropProject={this.onDropProject} />
+          <ProjectSection caption="Done" data={projects} group="done" onDropProject={this.onDropProject} />
+        </article>
+
+      </article>
+    )
+  }
 
   addTask = () => {
-    console.log('this is:', this.state);
 
     this.setState({
       projects: [
@@ -27,16 +48,7 @@ class Editor extends React.Component {
     })
   };
 
-  handleChange = event => {
-
-    this.setState({ value: event.target.value })
-  };
-
-
-  getProjectsByType(type) {
-
-    return this.state.projects.filter(d => d.type === type);
-  }
+  handleChange = e => this.setState({ value: e.target.value });
 
   onDropProject = (id, group) => {
     const { projects } = this.state;
@@ -44,29 +56,4 @@ class Editor extends React.Component {
     this.setState({ projects: projects.map(project => project.id === id ? { ...project, type: group } : project)});
   };
 
-  render() {
-    return (
-      <article>
-        <div>
-          <span> add project : </span>
-          <input type="text" value={this.state.value} onChange={this.handleChange}/>
-          <button onClick={this.addTask}>Add</button>
-        </div>
-        <div>
-          Total: {this.state.projects.length}
-        </div>
-
-        <article className="editor__projects">
-          <ProjectSection caption="To do" data={this.state.projects} group="todo" onDropProject={this.onDropProject} />
-          <ProjectSection caption="In Progress" data={this.state.projects} group="inProgress" onDropProject={this.onDropProject} />
-          <ProjectSection caption="Done" data={this.state.projects} group="done" onDropProject={this.onDropProject} />
-        </article>
-
-
-      </article>
-    )
-  }
-
 }
-
-export default Editor;
