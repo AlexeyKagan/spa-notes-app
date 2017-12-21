@@ -14,8 +14,6 @@ $ npm run webpack-devserver
 $ type in browser: localhost:8090
 ```
 
-#### Develop in process.
-
 License
 ----
 
