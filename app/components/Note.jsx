@@ -2,11 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Note.css';
 
-export default function Note({ onDelete, title, children, color }) {
-  const style = { backgroundColor: color };
-
+export default function Note({ onDelete, title, children, color: backgroundColor }) {
   return (
-    <div className='Note' style={style}>
+    <div className='Note' style={{ backgroundColor }}>
       <span className='Note__del-icon' onClick={onDelete}> × </span>
       {
         title ? <h4 className='Note__title'>{title}</h4> : null

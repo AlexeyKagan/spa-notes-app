@@ -4,7 +4,7 @@
   "description": "Notes application",
   "scripts": {
     "server": "babel-node server/app.js",
-    "start": "webpack-dev-server --color"
+    "client": "webpack-dev-server --color"
   },
   "dependencies": {
     "body-parser": "*",

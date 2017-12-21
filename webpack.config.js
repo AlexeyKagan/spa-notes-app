@@ -12,7 +12,7 @@ const config = {
 
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
+    path: paths.DIST,
   },
 
   resolve: {
@@ -45,7 +45,7 @@ const config = {
   ],
 
   devServer: {
-    contentBase: path.resolve(__dirname, 'dist'),
+    contentBase: paths.DIST,
     port: 8081,
   },
 

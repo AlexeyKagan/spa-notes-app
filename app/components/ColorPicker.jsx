@@ -5,7 +5,7 @@ import cx from 'classnames';
 import './ColorPicker.css';
 
 const COLORS = ['#FFFFFF', '#80D8FF', '#FFFF8D', '#FF8A80', '#CCFF90', '#CFD8DC', '#FFD180'];
-// @TODO
+
 export default function ColorPicker({ value, onChange }) {
   return (
     <div className='ColorPicker'>

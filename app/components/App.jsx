@@ -18,11 +18,8 @@ export default class App extends Component {
 
   state = getStateFromFlux();
 
-  componentWillMount() {
-    NotesActions.loadNotes();
-  }
-
   componentDidMount() {
+    NotesActions.loadNotes();
     NotesStore.addChangeListener(this._onChange);
   }
 
